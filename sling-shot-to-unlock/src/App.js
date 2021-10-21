@@ -1,11 +1,10 @@
 import './App.css';
-
-import HelloElement from './components/HelloElement'
-
+import './App.css'
+import PlayZone from './components/PlayZone'
 function App() {
   return (
     <div className="App">
-        <HelloElement id='5'/> 
+        <PlayZone/>
           
     </div>
   );
