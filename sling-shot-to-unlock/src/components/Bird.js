@@ -27,6 +27,7 @@ const Bird = ({id}) => {
         <div>
             <img src={bird_src} id="1" alt="red-bird" className="currentBird"></img>
         </div>
+
     );
 
 
