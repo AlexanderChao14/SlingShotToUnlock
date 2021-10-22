@@ -1,7 +1,6 @@
 import './App.css';
 import Bird from './components/Bird';
-
-import HelloElement from './components/HelloElement'
+import PlayZone from './components/PlayZone';
 
 function App() {
   return (
