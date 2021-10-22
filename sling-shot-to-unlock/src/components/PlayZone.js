@@ -1,17 +1,25 @@
 import Slingshot from "./Slingshot"
 import {useState} from 'react'
+import Bird from "./Bird"
 
 const PlayZone = () => {
     const [isMouseDown, setIsMouseDown] = useState(false)
     const [mouseX, setMouseX] = useState(null)
     const [mouseY, setMouseY] = useState(null)
     
-
+    function createBird(e){
+        console.log(mouseX, mouseY)
+        return(
+            <div style={{left: mouseX -50 +'px', top: mouseY-50 +'px', position:"absolute"}}>
+                <Bird id="1" />
+            </div>)
+    }
 
     function mouseDown(e){
         e.preventDefault();
         setIsMouseDown(true)
         console.log('mouse down')
+        
     }
 
     function mouseRelease(e){
@@ -28,13 +36,15 @@ const PlayZone = () => {
 
     function drawArrowPoint(){
         return(
-            <div className="arrow-point" style={{right: mouseX - 5+'px', bottom: mouseY + 5+'px'}}></div>
+            <div className="arrow-point" style={{right: mouseX - 5+'px', bottom: mouseY + 5+'px'}}>
+                {/* <Bird/> */}
+            </div>
         );
     }
 
     function relativeCoords ( event ) {
         var bounds = event.target.getBoundingClientRect();
-        console.log(bounds)
+        // console.log(bounds)
         setMouseX(event.clientX - bounds.left);
         setMouseY(event.clientY - bounds.top);
     }
@@ -45,6 +55,7 @@ const PlayZone = () => {
                 <Slingshot onMouseDownFunc={mouseDown}>
                 </Slingshot>
                 {(isMouseDown ? drawArrowPoint() : <div></div>) }
+                {(isMouseDown ? createBird() : <div></div>) }
             </div>
             
         </div>

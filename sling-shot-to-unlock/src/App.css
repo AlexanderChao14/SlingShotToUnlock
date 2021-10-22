@@ -40,3 +40,11 @@
   height: 5px;
   
 }
+
+.currentBird{
+  position: absolute;
+  /* background-color: black; */
+  margin-right: 200px;
+  max-width: 100px;
+  max-height: 100px;
+}
