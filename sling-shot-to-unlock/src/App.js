@@ -5,7 +5,7 @@ import PlayZone from './components/PlayZone';
 function App() {
   return (
     <div className="App">
-        <Bird id="3"></Bird>
+        {/* <Bird id="3"></Bird> */}
         <PlayZone/>
     </div>
   );
