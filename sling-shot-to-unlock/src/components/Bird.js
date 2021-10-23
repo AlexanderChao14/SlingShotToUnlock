@@ -33,4 +33,4 @@ const Bird = ({id}) => {
 
 }
 
-export default Bird
+export default Bird;
