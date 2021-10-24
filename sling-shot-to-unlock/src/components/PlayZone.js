@@ -71,23 +71,19 @@ const PlayZone = ({updateCombination, shootFunc}) => {
             console.log("This isn't suppose to happen")
         }
 
-        // setArrowX((mouseX - 25+'px'))
-        // setArrowY(mouseY + 5+'px')
-
-        // console.log("Final point "+mouseX)
-        // console.log("arrow head "+ arrowPointX, arrowPointY)
-        setIsMouseDown(false)
-        
         if(whichBird >=4){
             whichBird = 1;
         }else{
 
             whichBird+=1;
         }
-
+        console.log([window.event.x, window.event.y]);
         const sling = document.querySelector('.SlingShot').getBoundingClientRect();
-        shootFunc(sling,[mouseX,mouseY], whichBird);
+        shootFunc(sling,[window.event.x, window.event.y], whichBird);
         anime(e);
+
+        setIsMouseDown(false)
+        
     }
 
     function mouseMove(e){
@@ -125,14 +121,7 @@ const PlayZone = ({updateCombination, shootFunc}) => {
         // const angle = Math.atan2(clientY - arrowCenter.y, clientX - arrowCenter.x);
         // arrow.style.transform = `rotate(${angle}rad)`;
     }
-    function anime(e){
-        var width = "+=" + $(document).width();
-        $("#animate").animate({
-            left: width
-          }, 5000, function() {
-            // Animation complete.
-          });
-    }
+
 
     return (
         <div>

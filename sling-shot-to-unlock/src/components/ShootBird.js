@@ -1,39 +1,39 @@
 import Bird from "./Bird"
 import $ from 'jquery';
 import {useEffect} from 'react';
-import 'jquery-ui';
-import { Easing } from "react-anime";
+import 'jquery-ui-bundle';
+import 'jquery-ui-bundle/jquery-ui.css';
+import anime from 'animejs/lib/anime.es.js';
 
-const ShootBird= (birdType) =>{
+const ShootBird= ({birdState}) =>{
 
     useEffect(() => {
-        anime();
+        launchBird();
 
     });
 
-    function anime(e){
-        console.log("should be moving u bird")
-        var width = "+=" + $(document).width();
-        $(".shootingBird").animate({
+    function launchBird(){
+        //console.log("should be moving u bird")
+        //var width = "+=" + $(document).width();
+        console.log(birdState['sling'])
+        anime({
             targets: '.shootingBird',
-            translateX: [100, 250], // from 100 to 250
-            delay: 500,
-            direction: 'alternate',
-            loop: true
-         });
-    } 
+            translateX: [birdState['sling']['x'], 0], // from 100 to 250
+            translateY: [birdState['sling']['y'] - 120 + 'px', 0], // from 100 to 250
+            easing: 'linear',
+            duration: 2000,
+            complete: function(anim) {
+                console.log("done")
+            }
+        });
+    }
 
-    // function anime({
-    //     targets: '.el.from-to-values',
-    //     translateX: [100, 250], // from 100 to 250
-    //     delay: 500,
-    //     direction: 'alternate',
-    //     loop: true
-    //  });
+
+
 
     return(
         <div className="shootingBird">
-            <Bird id= {birdType} className="currentBird" onLoad={anime}/>
+            <Bird id={birdState['birdType']} className="currentBird"/>
 
         </div>
         
