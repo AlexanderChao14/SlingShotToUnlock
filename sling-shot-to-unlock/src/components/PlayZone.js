@@ -2,13 +2,19 @@ import Slingshot from "./Slingshot";
 import {useEffect, useRef, useState} from 'react';
 import Bird from "./Bird";
 import PigArea from "./PigArea";
+import Anime, {anime} from 'react-anime';
+import $ from 'jquery';
+
 var whichBird = 1;
 
-const PlayZone = ({updateCombination}) => {
+
+
+const PlayZone = ({updateCombination, shootFunc}) => {
     const [isMouseDown, setIsMouseDown] = useState(false)
     const [mouseX, setMouseX] = useState(null)
     const [mouseY, setMouseY] = useState(null)
     const popFunction = useRef(null);
+
 
     // const [arrowPointX, setArrowX] = useState(null)
     // const [arrowPointY, setArrowY] = useState(null)
@@ -71,14 +77,17 @@ const PlayZone = ({updateCombination}) => {
         // console.log("Final point "+mouseX)
         // console.log("arrow head "+ arrowPointX, arrowPointY)
         setIsMouseDown(false)
+        
         if(whichBird >=4){
             whichBird = 1;
         }else{
 
             whichBird+=1;
         }
-        
-        
+
+        const sling = document.querySelector('.SlingShot').getBoundingClientRect();
+        shootFunc(sling,[mouseX,mouseY], whichBird);
+        anime(e);
     }
 
     function mouseMove(e){
@@ -105,6 +114,14 @@ const PlayZone = ({updateCombination}) => {
         // console.log(mouseX)
         
     }
+    function anime(e){
+        var width = "+=" + $(document).width();
+        $("#animate").animate({
+            left: width
+          }, 5000, function() {
+            // Animation complete.
+          });
+    }
 
     return (
         <div>
@@ -115,7 +132,10 @@ const PlayZone = ({updateCombination}) => {
                     <Slingshot onMouseDownFunc={mouseDown}>
                     </Slingshot>
                     {(isMouseDown ? drawArrowPoint() : <div></div>) }
-                    {(isMouseDown ? createBird() : <div></div>) }
+                    {/* <div id="animate"> */}
+                    <div>
+                        {(isMouseDown ? createBird() : <div></div>) }
+                    </div>
                 </div>
                 
             </div>
