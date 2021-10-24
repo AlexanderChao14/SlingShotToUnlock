@@ -2201,7 +2201,7 @@
   "resolved" "https://registry.npmjs.org/alphanum-sort/-/alphanum-sort-1.0.2.tgz"
   "version" "1.0.2"
 
-"animejs@^3.2.x":
+"animejs@^3.0.1", "animejs@^3.2.x":
   "integrity" "sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A=="
   "resolved" "https://registry.npmjs.org/animejs/-/animejs-3.2.1.tgz"
   "version" "3.2.1"
@@ -6709,6 +6709,11 @@
     "import-local" "^3.0.2"
     "jest-cli" "^26.6.0"
 
+"jquery-ui-bundle@^1.12.1-migrate":
+  "integrity" "sha1-uTQ+LDEHQ1J2Ms/4vtsMXpYAsUw="
+  "resolved" "https://registry.npmjs.org/jquery-ui-bundle/-/jquery-ui-bundle-1.12.1-migrate.tgz"
+  "version" "1.12.1-migrate"
+
 "jquery-ui-dist@^1.12.1":
   "integrity" "sha1-XAgV08xvkP9fqvWyaKbiO0ypBPo="
   "resolved" "https://registry.npmjs.org/jquery-ui-dist/-/jquery-ui-dist-1.12.1.tgz"
@@ -9147,6 +9152,13 @@
   dependencies:
     "animejs" "^3.2.x"
 
+"react-animejs@^0.5.6":
+  "integrity" "sha512-d3unriMVPsMSxG9cBXsoJyCL/+8CqRXdkFYblXGszlJdiDFAPLKbcT4A9H3J3BYrNRcGnIOh1UY76IUTHcY+fg=="
+  "resolved" "https://registry.npmjs.org/react-animejs/-/react-animejs-0.5.6.tgz"
+  "version" "0.5.6"
+  dependencies:
+    "animejs" "^3.0.1"
+
 "react-app-polyfill@^2.0.0":
   "integrity" "sha512-0sF4ny9v/B7s6aoehwze9vJNWcmCemAUYBVasscVr92+UYiEqDXOxfKjXN685mDaMRNF3WdhHQs76oTODMocFA=="
   "resolved" "https://registry.npmjs.org/react-app-polyfill/-/react-app-polyfill-2.0.0.tgz"
@@ -9189,7 +9201,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@^17.0.2", "react-dom@^17.x":
+"react-dom@^17.0.2":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -9285,7 +9297,7 @@
   optionalDependencies:
     "fsevents" "^2.1.3"
 
-"react@^17.0.2", "react@^17.x":
+"react@^17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
