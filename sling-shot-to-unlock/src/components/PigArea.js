@@ -10,6 +10,7 @@ const PigArea = ({popFunction}) => {
     useEffect(() => {
         console.log("PigArea component mounted");
         popFunction.current = popPig;
+        
     },[]);
 
     const popPig = (id) =>{

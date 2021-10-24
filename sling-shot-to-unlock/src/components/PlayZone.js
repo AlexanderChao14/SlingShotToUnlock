@@ -4,7 +4,7 @@ import Bird from "./Bird";
 import PigArea from "./PigArea";
 var whichBird = 1;
 
-const PlayZone = () => {
+const PlayZone = ({updateCombination}) => {
     const [isMouseDown, setIsMouseDown] = useState(false)
     const [mouseX, setMouseX] = useState(null)
     const [mouseY, setMouseY] = useState(null)
@@ -48,15 +48,19 @@ const PlayZone = () => {
         
         if(mouseX> paddingLeft && mouseX< area-paddingRight){
             popFunction.current(4);
+            updateCombination.current(4);
 
         }else if(mouseX> area+ paddingLeft && mouseX< (area*2) - paddingRight){
             popFunction.current(3);
+            updateCombination.current(3);
 
         } else if(mouseX > (area*2) + paddingLeft && mouseX< (area*3) -paddingRight){
             popFunction.current(2);
+            updateCombination.current(2);
 
         }else if(mouseX > (area*3) + paddingLeft && mouseX< (area*4 -paddingRight)){
             popFunction.current(1);
+            updateCombination.current(1);
 
         }else{
             console.log("This isn't suppose to happen")
