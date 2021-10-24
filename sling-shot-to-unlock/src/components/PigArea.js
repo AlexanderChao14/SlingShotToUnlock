@@ -8,10 +8,10 @@ const PigArea = ({popFunction}) => {
     const popFunction4 = useRef(null);
     
     useEffect(() => {
-        console.log("PigArea component mounted");
+        //console.log("PigArea component mounted");
         popFunction.current = popPig;
         
-    },[]);
+    });
 
     const popPig = (id) =>{
         if(id === 1){

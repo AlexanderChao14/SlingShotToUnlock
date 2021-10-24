@@ -4,20 +4,27 @@ import {useState, useEffect} from "react";
 
 const Combinations = ({updateCombinationFunc}) => {
 
-    const [input, setInput] = useState([1,2,3]);
+    const [input, setInput] = useState([]);
     const [unlocked, setUnlocked] = useState(false);
     const showInputs = true;
-    const answer = [1,2,3,4];
+    const answer = [1,1,1,4];
 
     useEffect(() => {
         updateCombinationFunc.current = updateCombination;
 
-    },[setInput, setUnlocked]);
+    });
     
 
     const updateCombination = (value) => {
         console.log("this call was from combinations component", value);
-        setInput(input => [...input, value]);
+        console.log("input", input);
+        console.log('input length:', input.length);
+        if(value === answer[input.length]){
+            setInput(input => [...input, value]);
+        }else{
+            setInput([]);
+        }
+        
 
     }
     
@@ -43,8 +50,7 @@ const Combinations = ({updateCombinationFunc}) => {
     
     return (
         <div>
-            {checkSequence() ? <p>You Win!</p> : <></>}
-            {showInputs ? renderInputs() : <></>}
+            {checkSequence() ? <p>You unlocked the door!</p> : renderInputs()}
         </div>
     );
 };

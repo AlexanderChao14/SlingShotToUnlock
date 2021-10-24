@@ -24,7 +24,6 @@ const PlayZone = ({updateCombination}) => {
     function mouseDown(e){
         e.preventDefault();
         setIsMouseDown(true)
-        console.log('mouse down')
         
     }
 
@@ -39,9 +38,9 @@ const PlayZone = ({updateCombination}) => {
         e.preventDefault();
         
         var x = document.querySelector('.PlayZone_Content').offsetWidth;
-        console.log(x.offsetWidth)
+        //console.log(x.offsetWidth)
         var area = x/4;
-        console.log(area, mouseX)
+        //console.log(area, mouseX)
 
         var paddingLeft = 10;
         var paddingRight = 10;
@@ -72,7 +71,6 @@ const PlayZone = ({updateCombination}) => {
         // console.log("Final point "+mouseX)
         // console.log("arrow head "+ arrowPointX, arrowPointY)
         setIsMouseDown(false)
-        console.log('mouse released')
         if(whichBird >=4){
             whichBird = 1;
         }else{
