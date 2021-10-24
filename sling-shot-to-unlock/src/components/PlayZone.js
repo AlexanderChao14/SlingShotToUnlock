@@ -100,7 +100,7 @@ const PlayZone = ({updateCombination, shootFunc}) => {
         
         // console.log(arrowPointX, arrowPointY)
         return(
-            <div className="arrow-point" style={{right: mouseX - 25+'px', bottom: mouseY + 5+'px'}}>
+            <div className="arrow-point" style={{right: mouseX - 100+'px', bottom: mouseY + 100+'px'}}>
                 
             </div>
         );
@@ -108,11 +108,22 @@ const PlayZone = ({updateCombination, shootFunc}) => {
 
     function relativeCoords ( event ) {
         var bounds = event.target.getBoundingClientRect();
-
+        
         setMouseX(event.clientX - bounds.left);
         setMouseY(event.clientY - bounds.top);
         // console.log(mouseX)
-        
+
+        let center = document.querySelector('.PlayZone_Content').offsetWidth;
+        let center2 = document.querySelector('.PlayZone_Content').offsetHeight;
+        var slingQ = document.querySelector('.SlingShot img');
+        let widthCenter = center/2;
+        let heightCenter = center2/2;
+
+        const angle = Math.atan2(mouseY - heightCenter, mouseX - widthCenter) + ((290*Math.PI)/180);
+        console.log("my angle " +angle)
+        slingQ.style.transform = `rotate(${angle}rad)`;
+        // const angle = Math.atan2(clientY - arrowCenter.y, clientX - arrowCenter.x);
+        // arrow.style.transform = `rotate(${angle}rad)`;
     }
     function anime(e){
         var width = "+=" + $(document).width();
