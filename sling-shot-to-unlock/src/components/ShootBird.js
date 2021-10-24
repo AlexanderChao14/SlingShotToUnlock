@@ -15,11 +15,11 @@ const ShootBird= ({birdState}) =>{
     function launchBird(){
         //console.log("should be moving u bird")
         //var width = "+=" + $(document).width();
-        console.log(birdState['sling'])
+        
         anime({
             targets: '.shootingBird',
-            translateX: [birdState['sling']['x'], 0], // from 100 to 250
-            translateY: [birdState['sling']['y'] - 120 + 'px', 0], // from 100 to 250
+            translateX: [birdState['start'][0], 0], // from 100 to 250
+            translateY: [birdState['start'][1] - 120 + 'px', 0], // from 100 to 250
             easing: 'linear',
             duration: 2000,
             complete: function(anim) {

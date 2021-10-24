@@ -71,7 +71,7 @@ const PlayZone = ({updateCombination, shootFunc}) => {
             console.log("This isn't suppose to happen")
         }
 
-        if(whichBird >=4){
+        if(whichBird >=5){
             whichBird = 1;
         }else{
 
@@ -79,7 +79,7 @@ const PlayZone = ({updateCombination, shootFunc}) => {
         }
         console.log([window.event.x, window.event.y]);
         const sling = document.querySelector('.SlingShot').getBoundingClientRect();
-        shootFunc(sling,[window.event.x, window.event.y], whichBird);
+        shootFunc(sling,[window.event.x, window.event.y], whichBird-1);
         anime(e);
 
         setIsMouseDown(false)
