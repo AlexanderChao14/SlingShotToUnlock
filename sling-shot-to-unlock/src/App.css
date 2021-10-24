@@ -106,7 +106,7 @@
 
 .shootingBird {
   position: absolute;
-  margin-right: 200px;
+  margin-right: 0px;
   max-width: 100px;
   max-height: 100px;
   pointer-events: none;
