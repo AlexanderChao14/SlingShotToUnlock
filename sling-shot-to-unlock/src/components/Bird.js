@@ -3,7 +3,7 @@ import blue_bird from '../Assets/blue-bird.png';
 import yellow_bird from '../Assets/yellow-bird.png';
 import green_bird from '../Assets/green-bird.png';
 
-const Bird = ({id}) => {
+const Bird = ({id, }) => {
     var bird_src;
 
     switch(id) {

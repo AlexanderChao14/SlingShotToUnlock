@@ -2,10 +2,23 @@ import pig_1 from '../Assets/pig-1.png';
 import pig_2 from '../Assets/pig-2.png';
 import pig_3 from '../Assets/pig-3.png';
 import pig_4 from '../Assets/pig-4.png';
+import { useEffect, useState} from 'react';
 
-const Pig = ({id}) => {
+
+const Pig = ({id, popFunction}) => {
+    const [popped, setPopped] = useState(false)
     var pig_src;
 
+    useEffect(() => {
+        popFunction.current = pop
+        console.log(id, ' was mounted')
+    }, [])
+
+
+    const pop = () => {
+        console.log(id, ' was popped')
+        setPopped(true)
+    }
     
     switch(id) {
         case "1":
@@ -25,7 +38,9 @@ const Pig = ({id}) => {
     }
 
     return (
-        <div>
+        <div className={
+            popped ? 'popped' : 'spawn'
+        } onTransitionEnd={() => setPopped(false)}>
             <img src={pig_src} alt="pig" className="pig"></img>
         </div>
 

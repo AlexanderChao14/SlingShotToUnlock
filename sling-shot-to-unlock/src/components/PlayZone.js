@@ -8,7 +8,8 @@ const PlayZone = () => {
     const [isMouseDown, setIsMouseDown] = useState(false)
     const [mouseX, setMouseX] = useState(null)
     const [mouseY, setMouseY] = useState(null)
-    const ref = useRef(null);
+    const popFunction = useRef(null);
+
     // const [arrowPointX, setArrowX] = useState(null)
     // const [arrowPointY, setArrowY] = useState(null)
 
@@ -44,14 +45,19 @@ const PlayZone = () => {
 
         var paddingLeft = 10;
         var paddingRight = 10;
+        
         if(mouseX> paddingLeft && mouseX< area-paddingRight){
-            console.log(1)
+            popFunction.current(4);
+
         }else if(mouseX> area+ paddingLeft && mouseX< (area*2) - paddingRight){
-            console.log(2)
+            popFunction.current(3);
+
         } else if(mouseX > (area*2) + paddingLeft && mouseX< (area*3) -paddingRight){
-            console.log(3)
+            popFunction.current(2);
+
         }else if(mouseX > (area*3) + paddingLeft && mouseX< (area*4 -paddingRight)){
-            console.log(4)
+            popFunction.current(1);
+
         }else{
             console.log("This isn't suppose to happen")
         }
@@ -100,7 +106,7 @@ const PlayZone = () => {
 
     return (
         <div>
-            <PigArea/>
+            <PigArea popFunction={popFunction}/>
             <div className="PlayZone">
                 <div className = "PlayZone_Content"  onMouseUp={mouseRelease} onMouseMove={mouseMove}>
 
