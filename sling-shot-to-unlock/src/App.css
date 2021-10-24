@@ -73,3 +73,21 @@
   grid-template-areas: "pig pig pig pig";
   padding-top: 5%;
 }
+
+#animate {
+  position: relative;
+  border: 1px solid green;
+  background: yellow;
+  width: 100px;
+  height: 100px;
+}
+
+.shootingBird {
+  position: absolute;
+  margin-right: 200px;
+  max-width: 100px;
+  max-height: 100px;
+  pointer-events: none;
+  color: black;
+  background-color: black;
+}
