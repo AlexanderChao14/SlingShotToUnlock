@@ -4,6 +4,7 @@ import Bird from "./Bird";
 import PigArea from "./PigArea";
 import Anime, {anime} from 'react-anime';
 import $ from 'jquery';
+import sandbag from '../Assets/Sandbags.png';
 
 var whichBird = 1;
 
@@ -128,7 +129,9 @@ const PlayZone = ({updateCombination, shootFunc}) => {
             <PigArea popFunction={popFunction}/>
             <div className="PlayZone">
                 <div className = "PlayZone_Content"  onMouseUp={mouseRelease} onMouseMove={mouseMove}>
-
+                    <div className = "Sandbags" >    
+                        <img src={sandbag} className="Sandbag"></img>
+                    </div>
                     <Slingshot onMouseDownFunc={mouseDown}>
                     </Slingshot>
                     {(isMouseDown ? drawArrowPoint() : <div></div>) }

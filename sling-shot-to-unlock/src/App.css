@@ -5,6 +5,8 @@
   max-height: 100vh;
   border-collapse: collapse;
   width: 100vw;
+  background-image: url("../src/Assets/Feild.jpg");
+  background-repeat: repeat-y;
 }
 
 .SlingShot {
@@ -13,7 +15,7 @@
   height: 100px;
   position: absolute;
   bottom: 50%;
-  left: 50%;
+  left: 40%;
   /* pointer-events: none; */
 }
 
@@ -22,7 +24,6 @@
   width: 100px;
   height: 100px;
   position: absolute;
-  
   left:0%;
   pointer-events: none;
   
@@ -39,18 +40,18 @@
 } */
 
 .PlayZone_Content {
-  background-color: aqua;
   position: relative;
+  background-color: hotpink;
+  width: 50%;
   height: 100%;
-  margin-left: 5vw;
+  margin-left: 24vw;
   margin-right: 5vw;
 }
 
 .PlayZone {
-  background-color: gray;
   position: absolute;
   bottom: 10vh;
-  height: 40vh;
+  height: 50vh;
   width: 100%;
 }
 
@@ -94,6 +95,9 @@
   gap: 0px 0px;
   grid-template-areas: "pig pig pig pig";
   padding-top: 5%;
+  width:50%;
+  margin-left: 20vw;
+  
 }
 
 #animate {
@@ -112,4 +116,12 @@
   pointer-events: none;
   color: black;
   background-color: black;
+}
+
+.Sandbag {
+  position: relative;
+  z-index:1;
+  /* background-image: url("/Users/mohsinraza/Downloads/SlingShotToUnlock/CPSC581-Project2/SlingShotToUnlock/sling-shot-to-unlock/src/Assets/Sandbags.png"); */
+  max-width: 100px;
+  max-height: 100px;
 }
