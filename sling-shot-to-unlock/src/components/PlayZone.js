@@ -1,24 +1,18 @@
 import Slingshot from "./Slingshot";
-import {useEffect, useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import Bird from "./Bird";
 import PigArea from "./PigArea";
-import Anime, {anime} from 'react-anime';
-import $ from 'jquery';
+import {anime} from 'react-anime';
+
 import sandbag from '../Assets/Sandbags.png';
 
 var whichBird = 1;
 
-
-
-const PlayZone = ({updateCombination, shootFunc}) => {
+const PlayZone = ({updateCombination, shootFunc, setEndPosition}) => {
     const [isMouseDown, setIsMouseDown] = useState(false)
     const [mouseX, setMouseX] = useState(null)
     const [mouseY, setMouseY] = useState(null)
     const popFunction = useRef(null);
-
-
-    // const [arrowPointX, setArrowX] = useState(null)
-    // const [arrowPointY, setArrowY] = useState(null)
 
     function createBird(e){
         
@@ -34,20 +28,11 @@ const PlayZone = ({updateCombination, shootFunc}) => {
         
     }
 
-    
-    // useEffect(()=>{
-    //     console.log("width", ref.current.offsetWidth);
-    // }, []);
-
-    
-
     function mouseRelease(e){
         e.preventDefault();
         
         var x = document.querySelector('.PlayZone_Content').offsetWidth;
-        //console.log(x.offsetWidth)
         var area = x/4;
-        //console.log(area, mouseX)
 
         var paddingLeft = 10;
         var paddingRight = 10;
@@ -72,18 +57,29 @@ const PlayZone = ({updateCombination, shootFunc}) => {
             console.log("This isn't suppose to happen")
         }
 
+        const sling = document.querySelector('.SlingShot').getBoundingClientRect();
+        shootFunc(sling,[window.event.x, window.event.y], whichBird);
+        anime(e);
+
+        var slingOffset = Math.abs(window.event.x - sling.x -10);
+        var endPosition;
+        if (window.event.x > sling.x -10) {
+            endPosition = sling.x - slingOffset;
+        }
+        else {
+            endPosition = sling.x + slingOffset;
+        }
+
+        setEndPosition(endPosition);
+
         if(whichBird >=4){
             whichBird = 1;
         }else{
 
             whichBird+=1;
         }
-        console.log([window.event.x, window.event.y]);
-        const sling = document.querySelector('.SlingShot').getBoundingClientRect();
-        shootFunc(sling,[window.event.x, window.event.y], whichBird);
-        anime(e);
-
         setIsMouseDown(false)
+        
         
     }
 
@@ -95,9 +91,8 @@ const PlayZone = ({updateCombination, shootFunc}) => {
 
     function drawArrowPoint(){
         
-        // console.log(arrowPointX, arrowPointY)
         return(
-            <div className="arrow-point" style={{right: mouseX - 100+'px', bottom: mouseY + 100+'px'}}>
+            <div className="arrow-point" style={{right: mouseX - 35+'px', bottom: mouseY + 100+'px'}}>
                 
             </div>
         );
@@ -108,7 +103,6 @@ const PlayZone = ({updateCombination, shootFunc}) => {
         
         setMouseX(event.clientX - bounds.left);
         setMouseY(event.clientY - bounds.top);
-        // console.log(mouseX)
 
         let center = document.querySelector('.PlayZone_Content').offsetWidth;
         let center2 = document.querySelector('.PlayZone_Content').offsetHeight;
@@ -116,11 +110,9 @@ const PlayZone = ({updateCombination, shootFunc}) => {
         let widthCenter = center/2;
         let heightCenter = center2/2;
 
-        const angle = Math.atan2(mouseY - heightCenter, mouseX - widthCenter) + ((290*Math.PI)/180);
-        console.log("my angle " +angle)
+        const angle = Math.atan2(mouseY - heightCenter, mouseX - widthCenter) + ((280*Math.PI)/180);
         slingQ.style.transform = `rotate(${angle}rad)`;
-        // const angle = Math.atan2(clientY - arrowCenter.y, clientX - arrowCenter.x);
-        // arrow.style.transform = `rotate(${angle}rad)`;
+
     }
 
 
@@ -135,7 +127,6 @@ const PlayZone = ({updateCombination, shootFunc}) => {
                     <Slingshot onMouseDownFunc={mouseDown}>
                     </Slingshot>
                     {(isMouseDown ? drawArrowPoint() : <div></div>) }
-                    {/* <div id="animate"> */}
                     <div>
                         {(isMouseDown ? createBird() : <div></div>) }
                     </div>

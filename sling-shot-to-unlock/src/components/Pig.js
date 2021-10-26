@@ -11,12 +11,12 @@ const Pig = ({id, popFunction}) => {
 
     useEffect(() => {
         popFunction.current = pop
-        //console.log(id, ' was mounted')
+
     })
 
 
     const pop = () => {
-        //console.log(id, ' was popped')
+
         setPopped(true)
     }
     

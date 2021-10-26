@@ -5,31 +5,26 @@ import 'jquery-ui-bundle';
 import 'jquery-ui-bundle/jquery-ui.css';
 import anime from 'animejs/lib/anime.es.js';
 
-const ShootBird= ({birdState}) =>{
+const ShootBird= ({birdState, endPosition}) =>{
 
     useEffect(() => {
         launchBird();
-
     });
 
     function launchBird(){
-        //console.log("should be moving u bird")
-        //var width = "+=" + $(document).width();
-        console.log(birdState['sling'])
+        $(".shootingBird").css("opacity","1")
         anime({
             targets: '.shootingBird',
-            translateX: [birdState['sling']['x'], 0], // from 100 to 250
+            translateX: [birdState['sling']['x'], endPosition + 'px'], // from 100 to 250
             translateY: [birdState['sling']['y'] - 120 + 'px', 0], // from 100 to 250
             easing: 'linear',
-            duration: 2000,
+            duration: 300,
             complete: function(anim) {
-                console.log("done")
+                $(".shootingBird").css("opacity","0")
             }
+            
         });
     }
-
-
-
 
     return(
         <div className="shootingBird">
