@@ -5,6 +5,10 @@
   max-height: 100vh;
   border-collapse: collapse;
   width: 100vw;
+  background-image: url("../src/Assets/Feild.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .SlingShot {
@@ -13,19 +17,17 @@
   height: 100px;
   position: absolute;
   bottom: 50%;
-  left: 50%;
+  left: 45%;
   /* pointer-events: none; */
 }
 
-.SlingShot  img{
+.SlingShot img {
   /* background-color: gray; */
   width: 100px;
   height: 100px;
   position: absolute;
-  
-  left:0%;
+  left: 0%;
   pointer-events: none;
-  
 }
 
 /* .SlingShot2 {
@@ -39,18 +41,17 @@
 } */
 
 .PlayZone_Content {
-  background-color: aqua;
   position: relative;
+  width: 50%;
   height: 100%;
-  margin-left: 5vw;
+  margin-left: 24vw;
   margin-right: 5vw;
 }
 
 .PlayZone {
-  background-color: gray;
   position: absolute;
   bottom: 10vh;
-  height: 40vh;
+  height: 50vh;
   width: 100%;
 }
 
@@ -70,30 +71,32 @@
 }
 
 .pig {
+  position: absolute;
   align-self: center;
   justify-self: center;
-  position: absolute;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 150px;
+  max-height: 150px;
   pointer-events: none;
 }
 
-.popped{
+.popped {
   opacity: 0;
   transition: all 250ms linear 0s;
 }
 
-.spawn{
+.spawn {
   opacity: 1;
   transition: all 250ms linear 0.5s;
 }
 .PigArea {
   display: grid;
-  margin-right: 10%;
+  margin-right: 40%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas: "pig pig pig pig";
   padding-top: 5%;
+  width: 50%;
+  margin-left: 20vw;
 }
 
 #animate {
@@ -112,4 +115,14 @@
   pointer-events: none;
   color: black;
   background-color: black;
+}
+
+.Sandbag {
+  position: relative;
+  z-index: 0;
+  /* background-image: url("/Users/mohsinraza/Downloads/SlingShotToUnlock/CPSC581-Project2/SlingShotToUnlock/sling-shot-to-unlock/src/Assets/Sandbags.png"); */
+  max-width: 500px;
+  max-height: 500px;
+  pointer-events: none;
+  padding-top: 25%;
 }

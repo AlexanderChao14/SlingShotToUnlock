@@ -1,5 +1,5 @@
 import Pig from "./Pig";
-import { useState, useRef, useEffect} from "react";
+import { useRef, useEffect} from "react";
 
 const PigArea = ({popFunction}) => {
     const popFunction1 = useRef(null);
@@ -8,7 +8,6 @@ const PigArea = ({popFunction}) => {
     const popFunction4 = useRef(null);
     
     useEffect(() => {
-        //console.log("PigArea component mounted");
         popFunction.current = popPig;
         
     });
