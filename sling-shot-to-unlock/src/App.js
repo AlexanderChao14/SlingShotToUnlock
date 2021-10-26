@@ -3,6 +3,7 @@ import PlayZone from './components/PlayZone';
 import Combination from './components/Combination';
 import {useRef, useState} from 'react';
 import ShootBird from './components/ShootBird';
+import unlockscreen from './Assets/unlockscreen.png';
 
 function App() {
   
@@ -14,7 +15,7 @@ function App() {
     if (unlocked) {
       return (
         <div>
-          <img src="https://images.theinformr.com/i/features/970/10000003/is-my-phone-unlocked-guide.png" alt='phone-unlocked'></img>
+          <img src={unlockscreen} className ='unlockscreen' alt='phone-unlocked'></img>
         </div>
       );
     }
