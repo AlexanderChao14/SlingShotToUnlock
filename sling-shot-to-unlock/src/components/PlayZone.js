@@ -129,9 +129,9 @@ const PlayZone = ({updateCombination, shootFunc}) => {
             <PigArea popFunction={popFunction}/>
             <div className="PlayZone">
                 <div className = "PlayZone_Content"  onMouseUp={mouseRelease} onMouseMove={mouseMove}>
-                    <div className = "Sandbags" >    
+                <div className = "Sandbags">    
                         <img src={sandbag} className="Sandbag"></img>
-                    </div>
+                </div>
                     <Slingshot onMouseDownFunc={mouseDown}>
                     </Slingshot>
                     {(isMouseDown ? drawArrowPoint() : <div></div>) }
@@ -143,6 +143,7 @@ const PlayZone = ({updateCombination, shootFunc}) => {
                 
             </div>
         </div>
+
     )
 }
 
